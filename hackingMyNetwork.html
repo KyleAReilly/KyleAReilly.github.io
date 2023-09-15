@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">NETWORKING</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">HUB</a></li>
+							<li class="active"><a href="hackingMyNetwork.html">Network Hacking Documentation</a></li>
+							
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/kyle-reilly-85b63328b/" class="icon brands fa-linkedin"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/KyleAReilly" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 15, 2023</span>
+									<h1>Hacking my home network<br />
+									</h1>
+									<h3>Documentation</h3>
+									<p>Create Linode server
+										<a href="https://www.linode.com">linode.com</a> <br />
+										
+										Linode is a way to create cloud based virtual machines. 
+										Its important to scan your network externally. For this exercise we are using Nmap 
+										which does not provide accurate vulnerability analysis from internal scans. </p>
+								</header>
+								<div class="image main"><img src="images/linode.png" alt="Linode Screenshot" /></div>
+								<p>Step one was to install nmap using apt install nmap -y but I was getting an error saying "Unable to find package" 
+
+									After troubleshooting, I found a forum post explaining that many packages cannot be found until the package 
+									database has been updated on Linode configurations</p>
+									<div class="image main"><img src="images/2-homeNetwork.png" alt="Linode Screenshot" /></div>
+
+							
+								<p>after using apt update I was able to use apt install nmap -y to install needed packages</p>
+								<!-- image 3-->
+								<div class="image main"><img src="images/3-homenet.png" alt="Linode Screenshot" /></div>
+								<p>	Next step is using the nmap package with nmap -sT "My IP address" 
+									The -sT argument enables nmap to use a tcp scan on the network
+									
+									nmap completed scanning and came back with this message
+									
+									"All 1000 scanned ports on "my IP address" are filtered"
+									
+									Next I rant his command - "nmap --script vuln myIP" <br/> <br/>
+									This came back with the same message as before - "my IP address" are filtered"
+
+									Compared to the source, my home network has no apparent vulnerabilities. But if it 
+									did I would take some steps to protect it and harden my router. Another good option to 
+									protect it is by using a VPN but it is still at risk by IoT devices
+									<br><br>
+									Logging into my ISP page</p>
+									<!-- image 4-->
+									<div class="image fit"><img src="images/4-homenet.png" alt="Linode Screenshot" /></div>
+									<p>Going to the advanced > Security > Port forwarding section to check for open ports 
+										I found I do not have open ports. These are considered holes in the network and its important to plug unused holes</p>
+									<!-- image 5-->
+									<div class="image main"><img src="images/5-homenet.png" alt="Linode Screenshot" /></div>
+									<p>To maintain a secure network you need to turn off port forwarding, turn on firewall, and ensure remote management is off 
+										After viewing forums, it seems spectrum routers do not give you the option to turn this off and by default it is on. 
+										The solution to improve network security in this case would be using a different router with the option to turn remote access off. </p>
+									<p>Another big security risk is a lot of routers use default passwords that users never change</p>
+									<!-- image 6-->
+									<div class="image fit"><img src="images/6-homenet.png" alt="Linode Screenshot" /></div>
+									<p>I found the section to change my password in access control > user </p>
+									<p>My default username was admin and password was admin. This is one security flaw I was able to fix </p>
+									<p>Checking and updating firmware is a great way to keep your network up to date on known security vulnerabilities </p>
+									<p>next step is to ensure a secure standard is being used on the wifi such as WPA2  or the most up to date method</p>
+									<!-- image 7-->
+									<div class="image fit"><img src="images/7-homenet.png" alt="Linode Screenshot" /></div>
+									<p>Another security measure is to change the default password and name to protect against the threat of "wardriving" </p>
+									<p>Don't give passwords even to guests. A lot of routers have options for guest users to protect your network.</p>
+									<p>Disable the options to ping your network. This is to avoid scans </p>
+									<p>moving on to IoT (Smart light bulbs, alexa, HVAC)</p>
+									<p>a good way to protect yourself is putting IoT devices on a separate VLAN and use client isolation</p>
+									<!-- image 8-->
+									<div class="image main"><img src="images/8-homenet.png" alt="Linode Screenshot" /></div>
+									<p>Only certain routers can use features like this
+										using the software -dd-wrt you can do these things </p>
+									<p></p>
+									<p>Conclusion: My network was not very succeptible based on the brief overview. However, the router itself is incredibly basic and 
+										is missing many security features that limit vulnerabilities. One of those vulnerabilities being an entire attack vector. IoT devices are something im 
+										not able to limit vulnerabilities in as my router does not let me create seperate VLANS. Just because my network isnt very vulnerable does not mean that
+										friends and families systems are the same. vulnerabilities are incredibly more likely to be found on home networks as they typically receive very limited
+										user maintenance. 
+									</p>
+
+								
+							</section>
+
+
+
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="index.html" class="previous">Back to HUB</a>
+								</div>
+							</footer>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+						
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>301 Seacrest Dr<br />
+							Largo, FL 33771</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(720)-481-1226</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">Kyle.A.Reilly01@gmail.com</a></p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">									
+								
+								<li><a href="https://www.linkedin.com/in/kyle-reilly-85b63328b/" class="icon brands fa-linkedin"><span class="label">Instagram</span></a></li>
+								<li><a href="https://github.com/KyleAReilly" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+			<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>Portfolio</li><li>Kyle Reilly</a></li></ul>
+				</div>
+
+		</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>
