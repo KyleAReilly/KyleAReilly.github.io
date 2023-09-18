@@ -1299,7 +1299,19 @@ input, select, textarea {
 						}
 
 		}
-
+		@media screen and (max-width: 768px) {
+			.featured-image {
+				max-width: 100%; /* Resize the image to fit the container width */
+				height: auto; /* Maintain the aspect ratio */
+			}
+		}
+		/* Media query for smaller screens */
+		@media screen and (max-width: 768px) {
+   			 /* Reduce the image's maximum width for smaller screens */
+ 	 	  .featured-image {
+    	    max-width: 80%; /* Adjust the value as needed */
+ 	   		}
+		}		
 		@media screen and (max-width: 736px) {
 
 			.row {
